@@ -1,25 +1,19 @@
 class DirectorsController < ApplicationController
   def index
     @directors = Director.all
-
-    render("directors/index.html.erb")
   end
 
   def show
     @director = Director.find(params[:id])
-
-    render("directors/show.html.erb")
+    @movie = Movie.new
   end
 
   def new
     @director = Director.new
-
-    render("directors/new.html.erb")
   end
 
   def create
     @director = Director.new
-
     @director.name = params[:name]
     @director.dob = params[:dob]
     @director.bio = params[:bio]
@@ -30,14 +24,12 @@ class DirectorsController < ApplicationController
     if save_status == true
       redirect_to("/directors/#{@director.id}", :notice => "Director created successfully.")
     else
-      render("directors/new.html.erb")
+
     end
   end
 
   def edit
     @director = Director.find(params[:id])
-
-    render("directors/edit.html.erb")
   end
 
   def update
@@ -53,7 +45,7 @@ class DirectorsController < ApplicationController
     if save_status == true
       redirect_to("/directors/#{@director.id}", :notice => "Director updated successfully.")
     else
-      render("directors/edit.html.erb")
+
     end
   end
 
