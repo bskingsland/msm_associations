@@ -17,6 +17,11 @@
       <dt>Image url</dt>
       <dd><%= @actor.image_url %></dd>
 
+      <dt>Filmography</dt>
+      <% @actor.movies.each do |movie| %>
+      <dd><%=movie.title%></dd>
+      <%end%>
+
     </dl>
 
     <div class="btn-group btn-group-justified">
