@@ -27,6 +27,11 @@
         </a>
       </dd>
 
+      <dt>Cast</dt>
+      <% @movie.actors.each do |actor| %>
+      <dd><%=actor.name%></dd>
+      <%end%>
+
     </dl>
 
     <div class="btn-group btn-group-justified">
